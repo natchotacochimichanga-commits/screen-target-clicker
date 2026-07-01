@@ -2,6 +2,16 @@
 
 Windows desktop app that watches a selected window, finds target images with OpenCV template matching, and clicks matches automatically.
 
+## Download (no install needed)
+
+**[Download ScreenTargetClicker-Portable.zip](https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest/download/ScreenTargetClicker-Portable.zip)** from the [Releases](https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases) page.
+
+1. Download and extract the zip anywhere
+2. Open the extracted folder
+3. Double-click **`ScreenTargetClicker.exe`**
+
+Keep the whole folder together — the `_internal` subfolder is required. No Python install needed.
+
 ## Features
 
 - Pick any visible window to scan
@@ -12,9 +22,8 @@ Windows desktop app that watches a selected window, finds target images with Ope
 - Click cooldown, burst limits, and loop/wait tracking
 - Global start/stop hotkey (default F6)
 - Customizable dark UI with theme presets and fonts
-- Portable build via PyInstaller
 
-## Requirements
+## Requirements (source only)
 
 - Windows 10/11
 - Python 3.11+ (3.14 tested)
@@ -28,17 +37,17 @@ py main.py
 
 Or double-click `run.bat`.
 
-## Build portable exe
+## Build portable exe yourself
 
 Close any running copy of the app, then:
 
 ```bat
 build.bat
+package-portable.bat
 ```
 
-Output: `dist\ScreenTargetClicker\ScreenTargetClicker.exe`
-
-Keep the entire `dist\ScreenTargetClicker\` folder together.
+Output folder: `dist\ScreenTargetClicker\`  
+Release zip: `ScreenTargetClicker-Portable.zip`
 
 ## Usage
 
