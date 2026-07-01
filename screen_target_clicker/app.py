@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import tkinter as tk
+import webbrowser
 from dataclasses import replace
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
@@ -44,6 +45,8 @@ from .ui_theme import (
     ui_font,
 )
 from .window_capture import list_visible_windows
+
+DISCORD_INVITE_URL = "https://discord.gg/mRfnuHC8f"
 
 
 class App(tk.Tk):
@@ -116,6 +119,7 @@ class App(tk.Tk):
             ("targets", "  Targets"),
             ("rules", "  Rules"),
             ("settings", "  Settings"),
+            ("discord", "  Discord"),
         ):
             btn = make_nav_button(nav, label, lambda k=key: self._show_panel(k))
             btn.pack(fill=tk.X, pady=2)
@@ -187,6 +191,7 @@ class App(tk.Tk):
         self._build_targets_panel()
         self._build_rules_panel()
         self._build_settings_panel()
+        self._build_discord_panel()
 
         log_card = ttk.Frame(main, style="Panel.TFrame", padding=(20, 0, 20, 16))
         log_card.pack(fill=tk.X)
@@ -510,6 +515,35 @@ class App(tk.Tk):
         self.color_hex_label.pack(anchor=tk.W, pady=(8, 0))
         self._refresh_color_swatches()
 
+    def _build_discord_panel(self) -> None:
+        panel = ttk.Frame(self.content_host, style="Panel.TFrame")
+        self._panels["discord"] = panel
+
+        card = self._card(panel, "COMMUNITY")
+        ttk.Label(
+            card,
+            text="Join the Discord server for help, updates, and discussion.",
+            style="Card.TLabel",
+            wraplength=520,
+        ).pack(anchor=tk.W, pady=(0, 12))
+
+        ttk.Button(
+            card,
+            text="Join Discord Server",
+            style="Accent.TButton",
+            command=self.open_discord,
+        ).pack(anchor=tk.W)
+
+        ttk.Label(
+            card,
+            text=DISCORD_INVITE_URL,
+            style="DimCard.TLabel",
+        ).pack(anchor=tk.W, pady=(10, 0))
+
+    def open_discord(self) -> None:
+        webbrowser.open(DISCORD_INVITE_URL)
+        self.log_message("Opened Discord invite in browser.")
+
     def _on_ui_font_changed(self, _event: object = None) -> None:
         set_ui_font(self._ui_font_var.get())
         refresh_widget_styles(self)
@@ -620,6 +654,7 @@ class App(tk.Tk):
             "targets": "Targets",
             "rules": "Rules",
             "settings": "Settings",
+            "discord": "Discord",
         }
         self.page_title.config(text=titles.get(key, key.title()))
 
