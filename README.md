@@ -2,7 +2,7 @@
 
 Windows desktop app that watches a selected window, finds target images with OpenCV template matching, and clicks matches automatically.
 
-## Download (no install needed)
+## Download 
 
 **[Download ScreenTargetClicker-Portable.zip](https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest/download/ScreenTargetClicker-Portable.zip)** from the [Releases](https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases) page.
 
