@@ -270,6 +270,12 @@ code {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--accent-glow);
+  margin-bottom: 0.25rem;
+}
+
+.app-version {
+  font-size: 0.62rem;
+  color: var(--text-dim);
   margin-bottom: 0.75rem;
 }
 
