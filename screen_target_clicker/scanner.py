@@ -13,7 +13,7 @@ from .detection_analysis import DetectionAnalysis, analyze_detection
 from .matcher import Match, TargetImage
 from .rules import ClickRule
 from .scan_region import ScanRegion
-from .window_capture import capture_window
+from .window_capture import capture_window, focus_target_window, get_foreground_hwnd, is_window_alive
 
 pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.05
@@ -36,6 +36,7 @@ class ScanFrameUpdate:
     analysis: DetectionAnalysis
     click_blocked: bool
     clicked: bool
+    block_reason: str | None = None
 
 
 class WindowScanner:
@@ -53,8 +54,11 @@ class WindowScanner:
         on_status: Callable[[str], None],
         on_match: Callable[[Match, int, int], None] | None = None,
         on_scan_frame: Callable[[ScanFrameUpdate], None] | None = None,
+        on_window_lost: Callable[[], None] | None = None,
+        target_title: str = "",
     ) -> None:
         self.hwnd = hwnd
+        self.target_title = target_title.strip()
         self.targets = targets
         self.click_rules = click_rules
         self.threshold = threshold
@@ -66,6 +70,7 @@ class WindowScanner:
         self.on_status = on_status
         self.on_match = on_match
         self.on_scan_frame = on_scan_frame
+        self.on_window_lost = on_window_lost
 
         self._stop_event = threading.Event()
         self._thread: threading.Thread | None = None
@@ -156,6 +161,7 @@ class WindowScanner:
         *,
         click_blocked: bool,
         clicked: bool,
+        block_reason: str | None = None,
     ) -> None:
         if self.on_scan_frame is None:
             return
@@ -164,8 +170,18 @@ class WindowScanner:
                 analysis=analysis,
                 click_blocked=click_blocked,
                 clicked=clicked,
+                block_reason=block_reason,
             )
         )
+
+    def _ensure_target_focus(self) -> bool:
+        if not is_window_alive(self.hwnd):
+            return False
+        if get_foreground_hwnd() == self.hwnd:
+            return True
+        label = self.target_title or f"window {self.hwnd}"
+        self.on_status(f"Refocusing {label} before click.")
+        return focus_target_window(self.hwnd)
 
     def _run(self) -> None:
         self.on_status("Scanner started.")
@@ -180,6 +196,12 @@ class WindowScanner:
                     continue
 
                 try:
+                    if not is_window_alive(self.hwnd):
+                        self.on_status("Target window closed or unavailable.")
+                        if self.on_window_lost is not None:
+                            self.on_window_lost()
+                        break
+
                     screen, win_left, win_top = capture_window(self.hwnd)
                 except Exception as exc:
                     self.on_status(f"Capture failed: {exc}")
@@ -197,10 +219,16 @@ class WindowScanner:
                 best_match = analysis.best_match
                 click_blocked = False
                 clicked = False
+                block_reason: str | None = None
 
                 if best_match is not None:
                     if self._in_click_cooldown():
                         click_blocked = True
+                        block_reason = "cooldown"
+                        self._waits_triggered += 1
+                    elif not self._ensure_target_focus():
+                        click_blocked = True
+                        block_reason = "refocus"
                         self._waits_triggered += 1
                     else:
                         click_x = win_left + best_match.center_x
@@ -223,6 +251,7 @@ class WindowScanner:
                     analysis,
                     click_blocked=click_blocked,
                     clicked=clicked,
+                    block_reason=block_reason,
                 )
                 self._scan_loops += 1
 

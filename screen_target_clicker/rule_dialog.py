@@ -15,9 +15,12 @@ class SubsectionThresholdDialog(tk.Toplevel):
         primary_name: str,
         subsection_name: str,
         default: float = 0.85,
+        *,
+        confirm_text: str = "Add Rule",
+        dialog_title: str = "Subsection Confidence",
     ) -> None:
         super().__init__(master)
-        self.title("Subsection Confidence")
+        self.title(dialog_title)
         self.resizable(False, False)
         self.transient(master)
         self.grab_set()
@@ -63,9 +66,9 @@ class SubsectionThresholdDialog(tk.Toplevel):
         buttons.pack(fill=tk.X, pady=(12, 0))
 
         ttk.Button(buttons, text="Cancel", command=self._cancel).pack(side=tk.RIGHT)
-        ttk.Button(buttons, text="Add Rule", style="Accent.TButton", command=self._confirm).pack(
-            side=tk.RIGHT, padx=(0, 8)
-        )
+        ttk.Button(
+            buttons, text=confirm_text, style="Accent.TButton", command=self._confirm
+        ).pack(side=tk.RIGHT, padx=(0, 8))
 
         self.protocol("WM_DELETE_WINDOW", self._cancel)
         self.wait_window()

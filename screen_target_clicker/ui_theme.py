@@ -1,4 +1,4 @@
-"""Axon-style dark theme for tkinter / ttk widgets."""
+"""Atlas-style dark theme for tkinter / ttk widgets."""
 
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ class ThemePreset:
 
 THEME_PRESETS: list[ThemePreset] = [
     ThemePreset(
-        name="Axon",
+        name="Atlas",
         accent="#7c6cf0",
         bg="#0b0b0f",
         sidebar="#0e0e14",
@@ -136,6 +136,28 @@ THEME_PRESETS: list[ThemePreset] = [
         input="#14171e",
         card_hover="#22262f",
         border="#2f3540",
+    ),
+    ThemePreset(
+        name="Ocean",
+        accent="#38bdf8",
+        bg="#060a10",
+        sidebar="#081018",
+        panel="#0c1420",
+        card="#101c2c",
+        input="#0c1826",
+        card_hover="#162638",
+        border="#243648",
+    ),
+    ThemePreset(
+        name="Crimson",
+        accent="#ef4444",
+        bg="#0c0808",
+        sidebar="#100a0a",
+        panel="#160e0e",
+        card="#201212",
+        input="#180e0e",
+        card_hover="#2c1818",
+        border="#402626",
     ),
 ]
 
@@ -257,8 +279,11 @@ def apply_theme_preset(preset: ThemePreset) -> None:
 
 
 def get_preset_by_name(name: str) -> ThemePreset | None:
+    lookup = name.strip()
+    if lookup.lower() == "axon":
+        lookup = "Atlas"
     for preset in THEME_PRESETS:
-        if preset.name == name:
+        if preset.name == lookup:
             return preset
     return None
 

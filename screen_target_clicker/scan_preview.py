@@ -128,12 +128,18 @@ class ScanPreviewWindow(tk.Toplevel):
         *,
         click_blocked: bool = False,
         clicked: bool = False,
+        block_reason: str | None = None,
     ) -> None:
         text = _compact_results(analysis.results_text)
         if clicked:
             text += "\n>> Clicked"
         elif click_blocked:
-            text += "\n>> Waiting for cooldown"
+            if block_reason == "cooldown":
+                text += "\n>> Click delayed (cooldown)"
+            elif block_reason == "refocus":
+                text += "\n>> Click delayed (waiting for window focus)"
+            else:
+                text += "\n>> Click delayed"
 
         self._show_image(analysis.annotated)
         self._set_results(text)

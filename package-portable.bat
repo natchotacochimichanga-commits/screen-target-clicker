@@ -20,7 +20,14 @@ if errorlevel 1 (
   exit /b 1
 )
 
+if not exist "website\downloads" mkdir "website\downloads"
+
 echo.
 echo Created: %CD%\%ZIP%
-echo Upload with: gh release upload v1.0 %ZIP% --clobber
+echo.
+echo Publish to GitHub Releases:
+echo   release.bat v1.2
+echo.
+echo Or upload manually:
+echo   gh release upload v1.2 %ZIP% --clobber
 pause
