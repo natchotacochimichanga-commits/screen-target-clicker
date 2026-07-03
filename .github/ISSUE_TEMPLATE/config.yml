@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: User guide (website)
+    url: https://natchotacochimichanga-commits.github.io/screen-target-clicker/#guide
+    about: Setup, scanning, webhooks, and tips.
+  - name: Download latest release
+    url: https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest
+    about: Portable Windows build.

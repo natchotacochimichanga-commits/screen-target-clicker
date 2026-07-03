@@ -1,0 +1,29 @@
+name: Review or Recommendation
+description: Share feedback, ideas, or feature suggestions.
+title: "[Feedback]: "
+labels:
+  - feedback
+body:
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: Type
+      options:
+        - Review
+        - Recommendation
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: Your feedback
+      description: Reviews, praise, ideas, and improvement suggestions are all welcome.
+      placeholder: I think it would be helpful if...
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact (optional)
+      description: Email or username if you want a reply.
+      placeholder: you@example.com

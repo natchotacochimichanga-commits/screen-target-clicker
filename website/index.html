@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Screen Target Clicker v1.2 — Windows automation with Atlas UI, live preview, rules, and portable builds."
+      content="Screen Target Clicker v1.3 — Atlas UI, in-app guide, webhooks, and GitHub feedback."
     />
     <title>Screen Target Clicker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,16 +31,20 @@
         <nav class="nav" id="nav">
           <a href="#features">Features</a>
           <a href="#how-it-works">How it works</a>
+          <a href="#guide">Guide</a>
           <a href="#updates">Updates</a>
           <a href="#download">Download</a>
+          <a
+            href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/issues"
+            target="_blank"
+            rel="noreferrer"
+            >Feedback</a
+          >
           <a
             href="https://github.com/natchotacochimichanga-commits/screen-target-clicker"
             target="_blank"
             rel="noreferrer"
             >GitHub</a
-          >
-          <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
-            >Discord</a
           >
         </nav>
         <a
@@ -80,7 +84,7 @@
             <ul class="hero-points">
               <li>Free &amp; open source (MIT)</li>
               <li>~80 MB portable folder — extract and run</li>
-              <li>Windows 10 / 11 · v1.2 · Atlas UI</li>
+              <li>Windows 10 / 11 · v1.3 · Atlas UI</li>
             </ul>
           </div>
 
@@ -88,12 +92,12 @@
             <div class="app-shell">
               <div class="app-sidebar">
                 <div class="app-brand">TARGET<br />CLICKER</div>
-                <div class="app-version">v1.2 · Atlas</div>
+                <div class="app-version">v1.3 · Atlas</div>
                 <div class="app-nav-item app-nav-item--active">Window</div>
                 <div class="app-nav-item">Targets</div>
                 <div class="app-nav-item">Rules</div>
                 <div class="app-nav-item">Settings</div>
-                <div class="app-nav-item">Discord</div>
+                <div class="app-nav-item">Help</div>
                 <div class="app-start">START</div>
               </div>
               <div class="app-main">
@@ -171,10 +175,24 @@
               </p>
             </article>
             <article class="card">
-              <h3>Discord &amp; community</h3>
+              <h3>In-app guide</h3>
               <p>
-                Built-in Discord tab opens the community server for help, updates,
-                and sharing setups — no hunting for invite links.
+                The Help tab includes a full user guide — setup, targets, rules,
+                webhooks, shortcuts, and multi-instance tips.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Discord webhooks</h3>
+              <p>
+                Send scan start/stop, errors, wait summaries, and optional click
+                batches to your own Discord channel — no server join required.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Bugs &amp; feedback</h3>
+              <p>
+                Report bugs, reviews, and recommendations from the app’s Feedback
+                tab or on GitHub Issues — structured templates, no Discord needed.
               </p>
             </article>
             <article class="card">
@@ -258,7 +276,101 @@
         </div>
       </section>
 
-      <section class="section" id="updates">
+      <section class="section section--alt" id="guide">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Guide</p>
+            <h2>Quick start</h2>
+            <p>
+              The full guide lives in the app under <strong>Help → Guide</strong>.
+              Here’s the short version.
+            </p>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <h3>Pick a window</h3>
+                <p>
+                  On the Window tab, select the app to watch. Use search if the list
+                  is long. Optionally draw a scan zone.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <h3>Add targets or rules</h3>
+                <p>
+                  Targets are images to click instantly. Rules require a primary and
+                  subsection image to both match before clicking.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <h3>Test, tune, start</h3>
+                <p>
+                  Run <strong>Test Detection</strong>, adjust confidence in Settings,
+                  then press <strong>START</strong> or your hotkey (F6 by default).
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <div>
+                <h3>Webhooks &amp; alerts (optional)</h3>
+                <p>
+                  Under <strong>Help → Webhooks</strong>, paste a Discord webhook URL
+                  from your own channel to get scan alerts on your phone or desktop.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="feedback">
+        <div class="container download-panel">
+          <div>
+            <p class="eyebrow">Feedback</p>
+            <h2>Bugs, reviews &amp; recommendations</h2>
+            <p>
+              No Discord server to join — send feedback from the app
+              (<strong>Help → Feedback</strong>) or open a GitHub issue. Choose
+              <strong>Bug Report</strong> or <strong>Review / Recommendation</strong>.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn--primary"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/issues/new/choose"
+                target="_blank"
+                rel="noreferrer"
+                >Submit feedback on GitHub</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/issues"
+                target="_blank"
+                rel="noreferrer"
+                >View all issues</a
+              >
+            </div>
+          </div>
+          <div class="download-card card">
+            <h3>From the app</h3>
+            <ul class="plain-list">
+              <li>Open <strong>Help → Feedback</strong></li>
+              <li>Pick Bug, Review, or Recommendation</li>
+              <li>Write your message and click Send</li>
+              <li>GitHub opens to finish submission if needed</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="updates">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Updates</p>
@@ -275,15 +387,22 @@
           </div>
           <div class="feature-grid">
             <article class="card">
-              <p class="eyebrow">v1.2 · Latest</p>
+              <p class="eyebrow">v1.3 · Latest</p>
+              <h3>Help tab: guide, webhooks &amp; feedback</h3>
+              <ul class="plain-list">
+                <li>In-app user guide (Help → Guide)</li>
+                <li>Discord webhook alerts — your channel, no server join</li>
+                <li>Send bugs, reviews, and recommendations (Help → Feedback)</li>
+                <li>Wait tracker summary every 10 waits</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="eyebrow">v1.2</p>
               <h3>Atlas UI &amp; quality of life</h3>
               <ul class="plain-list">
                 <li>Atlas rebrand with Ocean and Crimson presets (8 themes total)</li>
-                <li>Color wheel editor for accent, panels, borders, and text</li>
-                <li>Auto-save, edit rules, window search, and settings tooltips</li>
-                <li>Log timestamps, clear log, and show targets in Explorer</li>
-                <li>Keyboard shortcuts: Ctrl+S save, Ctrl+L load, Delete remove</li>
-                <li>Scan auto-stops when the target window closes</li>
+                <li>Color wheel editor, auto-save, edit rules, and window search</li>
+                <li>Keyboard shortcuts, log timestamps, and scan auto-stop</li>
               </ul>
             </article>
             <article class="card">
@@ -311,7 +430,7 @@
         <div class="container download-panel">
           <div>
             <p class="eyebrow">Download</p>
-            <h2>Latest portable build · v1.2</h2>
+            <h2>Latest portable build · v1.3</h2>
             <p>
               Portable Windows build from GitHub Releases (~80 MB). No Python install
               needed — extract the zip and run <code>ScreenTargetClicker.exe</code>.
@@ -343,8 +462,11 @@
                 >
               </li>
               <li>
-                <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
-                  >Community Discord</a
+                <a
+                  href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/issues/new/choose"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Report a bug or send feedback</a
                 >
               </li>
             </ul>
@@ -369,8 +491,11 @@
             rel="noreferrer"
             >GitHub</a
           >
-          <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
-            >Discord</a
+          <a
+            href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/issues"
+            target="_blank"
+            rel="noreferrer"
+            >Feedback</a
           >
         </div>
       </div>
