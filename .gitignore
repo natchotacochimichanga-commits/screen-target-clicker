@@ -10,6 +10,7 @@ pyarmor.bug.log
 
 # Python
 __pycache__/
+!screen_target_clicker/__pycache__/
 *.py[cod]
 !screen_target_clicker/__pycache__/app.*.pyc
 *.pyo

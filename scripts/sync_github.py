@@ -59,5 +59,23 @@ def sync() -> None:
     print("Next: git add -A && git commit && git push")
 
 
+def git_add_protected_files() -> None:
+    """Stage binary artifacts that .gitignore would otherwise skip."""
+    import subprocess
+
+    protected = [
+        ROOT / "pyarmor_runtime_000000" / "pyarmor_runtime.pyd",
+        ROOT / "screen_target_clicker" / "pyarmor_runtime_000000" / "pyarmor_runtime.pyd",
+    ]
+    cache = ROOT / "screen_target_clicker" / "__pycache__"
+    if cache.is_dir():
+        protected.extend(cache.glob("app.*.pyc"))
+
+    for path in protected:
+        if path.is_file():
+            subprocess.run(["git", "add", "-f", str(path)], cwd=ROOT, check=True)
+
+
 if __name__ == "__main__":
     sync()
+    git_add_protected_files()
