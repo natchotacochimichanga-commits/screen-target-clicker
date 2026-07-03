@@ -1,13 +1,22 @@
+# Readable source — local development only (never pushed to GitHub)
+src/
+
 # Build output
 build/
 dist/
 ScreenTargetClicker-Portable.zip
+build/release_src/
+pyarmor.bug.log
 
 # Python
 __pycache__/
 *.py[cod]
+!screen_target_clicker/__pycache__/app.*.pyc
 *.pyo
 *.pyd
+!pyarmor_runtime_000000/**/*.pyd
+!screen_target_clicker/pyarmor_runtime_000000/**/*.pyd
+*.c
 .Python
 *.egg-info/
 .eggs/

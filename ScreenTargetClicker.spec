@@ -1,12 +1,12 @@
 # -*- mode: python ; coding: utf-8 -*-
 import os
 import sys
+from pathlib import Path
 
 import cv2
 
 cv2_dir = os.path.dirname(cv2.__file__)
 
-# OpenCV loads these from disk at runtime; they must exist next to cv2/__init__.py.
 opencv_config_datas = []
 for fname in [
     "config.py",
@@ -18,26 +18,61 @@ for fname in [
     if os.path.isfile(fpath):
         opencv_config_datas.append((fpath, "cv2"))
 
+build_src = os.environ.get("STC_BUILD_SRC", "").strip()
+if build_src:
+    entry = str(Path(build_src) / "main.py")
+    search_paths = [build_src]
+else:
+    entry = "main.py"
+    search_paths = []
+
+EXCLUDES = [
+    "matplotlib",
+    "scipy",
+    "pandas",
+    "pytest",
+    "unittest",
+    "test",
+    "tests",
+    "tkinter.test",
+    "idlelib",
+    "lib2to3",
+    "pydoc",
+    "pydoc_data",
+    "xmlrpc",
+    "curses",
+    "setuptools",
+    "distutils",
+    "pip",
+    "wheel",
+]
+
+HIDDEN_IMPORTS = [
+    "win32gui",
+    "win32con",
+    "win32api",
+    "win32process",
+    "pywintypes",
+    "PIL._tkinter_finder",
+    "keyboard",
+    "pyarmor_runtime_000000",
+    "screen_target_clicker.app",
+]
+
 a = Analysis(
-    ["main.py"],
-    pathex=[],
+    [entry],
+    pathex=search_paths,
     binaries=[],
     datas=opencv_config_datas,
-    hiddenimports=[
-        "win32gui",
-        "win32con",
-        "pywintypes",
-        "PIL._tkinter_finder",
-        "keyboard",
-    ],
+    hiddenimports=HIDDEN_IMPORTS,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=EXCLUDES,
     noarchive=False,
-    optimize=0,
+    optimize=2,
 )
-pyz = PYZ(a.pure)
+pyz = PYZ(a.pure, cipher=None)
 
 exe = EXE(
     pyz,
@@ -50,7 +85,7 @@ exe = EXE(
     strip=False,
     upx=True,
     console=False,
-    disable_windowed_traceback=False,
+    disable_windowed_traceback=True,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
