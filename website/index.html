@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Screen Target Clicker — Windows automation that finds images in any window and clicks them automatically."
+    />
+    <title>Screen Target Clicker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow--left"></div>
+    <div class="bg-glow bg-glow--right"></div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark">◆</span>
+          <span>
+            <strong>Target</strong> Clicker
+          </span>
+        </a>
+        <nav class="nav" id="nav">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#updates">Updates</a>
+          <a href="#download">Download</a>
+          <a
+            href="https://github.com/natchotacochimichanga-commits/screen-target-clicker"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
+            >Discord</a
+          >
+        </nav>
+        <a
+          class="btn btn--small btn--primary header-cta"
+          href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest/download/ScreenTargetClicker-Portable.zip"
+          >Download</a
+        >
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Windows · OpenCV · No install required</p>
+            <h1>Click what you see.<br />Automatically.</h1>
+            <p class="lead">
+              Screen Target Clicker watches any window, finds your target images,
+              and clicks them — with live preview, smart cooldowns, and configs that
+              save themselves.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn--primary"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest/download/ScreenTargetClicker-Portable.zip"
+                >Download portable zip</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker"
+                target="_blank"
+                rel="noreferrer"
+                >View on GitHub</a
+              >
+            </div>
+            <ul class="hero-points">
+              <li>Free &amp; open source (MIT)</li>
+              <li>~67 MB portable folder — extract and run</li>
+              <li>Windows 10 / 11</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="app-shell">
+              <div class="app-sidebar">
+                <div class="app-brand">TARGET<br />CLICKER</div>
+                <div class="app-nav-item app-nav-item--active">Window</div>
+                <div class="app-nav-item">Targets</div>
+                <div class="app-nav-item">Rules</div>
+                <div class="app-nav-item">Settings</div>
+                <div class="app-start">START</div>
+              </div>
+              <div class="app-main">
+                <div class="app-title">Window</div>
+                <div class="app-card">
+                  <div class="app-card-label">TARGET WINDOW</div>
+                  <div class="app-pill">Notepad</div>
+                </div>
+                <div class="app-card app-card--small">
+                  <div class="app-card-label">LIVE PREVIEW</div>
+                  <div class="app-preview">
+                    <span class="match match--ok">92.4%</span>
+                    <span class="match match--wait">Cooldown 1.2s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Features</p>
+            <h2>Built for real automation sessions</h2>
+            <p>
+              Not just image matching — timing, zones, rules, and multiple
+              instances working side by side.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="card">
+              <h3>Window targeting</h3>
+              <p>
+                Pick any visible window. Each app instance claims its own target
+                so two copies never fight over the same window.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Image &amp; rule matching</h3>
+              <p>
+                Add target images for instant clicks, or conditional rules where
+                primary and subsection images must both match.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Scan zones</h3>
+              <p>
+                Crop where to search — a global zone for targets and separate
+                purple zones per rule.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Live scan HUD</h3>
+              <p>
+                A compact preview pins to your target window with match markers,
+                cooldown timer, and loop stats.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Timing controls</h3>
+              <p>
+                Global click cooldown, burst click limits, long pauses, and wait
+                tracking so automation stays controlled.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Configs &amp; themes</h3>
+              <p>
+                Setups auto-save while you work and reload on launch. Atlas theme,
+                eight color presets, custom fonts, and exportable JSON configs.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Multi-instance</h3>
+              <p>
+                Run several copies at once — each with its own window, hotkey, and
+                saved config file.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Hotkey &amp; test mode</h3>
+              <p>
+                Toggle scanning with a global hotkey (F6 by default) and preview
+                detection before you start.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="how-it-works">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">How it works</p>
+            <h2>Up and running in minutes</h2>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <h3>Download &amp; extract</h3>
+                <p>
+                  Grab the portable zip from
+                  <a
+                    href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub Releases</a
+                  >, extract it anywhere, and run
+                  <code>ScreenTargetClicker.exe</code>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <h3>Choose a window &amp; targets</h3>
+                <p>
+                  Select the app to watch, add screenshot targets, and optionally
+                  draw scan zones or conditional rules.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <h3>Test, then start</h3>
+                <p>
+                  Use <strong>Test Detection</strong> to verify matches, tune
+                  confidence in Settings, then hit <strong>START</strong> or your
+                  hotkey.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <div>
+                <h3>Close when done</h3>
+                <p>
+                  Your config saves automatically. Next launch picks up where you
+                  left off.
+                </p>
+              </div>
+            </li>
+          </ol>
+          <p class="note">
+            <strong>Failsafe:</strong> move the mouse to the top-left corner of
+            the screen to abort PyAutoGUI actions.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="updates">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Updates</p>
+            <h2>What’s new</h2>
+            <p>
+              New builds are published on
+              <a
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases"
+                target="_blank"
+                rel="noreferrer"
+                >GitHub Releases</a
+              >. This page updates automatically when the repo is pushed.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="card">
+              <p class="eyebrow">v1.2 · Latest</p>
+              <h3>Atlas UI &amp; quality of life</h3>
+              <ul class="plain-list">
+                <li>Atlas theme with Ocean and Crimson presets</li>
+                <li>Auto-save, edit rules, window search, log timestamps</li>
+                <li>Multi-instance configs, window claiming, scan auto-stop</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="eyebrow">v1.1</p>
+              <h3>Community &amp; polish</h3>
+              <ul class="plain-list">
+                <li>Discord tab in the app sidebar</li>
+                <li>UI refinements and stability fixes</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="eyebrow">v1.0</p>
+              <h3>Initial release</h3>
+              <ul class="plain-list">
+                <li>Window targeting and image matching</li>
+                <li>Conditional rules, scan zones, and live preview HUD</li>
+                <li>Portable Windows build — no Python install required</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="download">
+        <div class="container download-panel">
+          <div>
+            <p class="eyebrow">Download</p>
+            <h2>Latest portable build</h2>
+            <p>
+              Portable Windows build from GitHub Releases. No Python install needed
+              — extract the zip and run <code>ScreenTargetClicker.exe</code>.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn--primary"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases/latest/download/ScreenTargetClicker-Portable.zip"
+                >Download ScreenTargetClicker-Portable.zip</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/natchotacochimichanga-commits/screen-target-clicker/releases"
+                target="_blank"
+                rel="noreferrer"
+                >All releases</a
+              >
+            </div>
+          </div>
+          <div class="download-card card">
+            <h3>Also on GitHub</h3>
+            <ul class="link-list">
+              <li>
+                <a
+                  href="https://github.com/natchotacochimichanga-commits/screen-target-clicker"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Source code &amp; issues</a
+                >
+              </li>
+              <li>
+                <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
+                  >Community Discord</a
+                >
+              </li>
+            </ul>
+            <h3>Requirements</h3>
+            <ul class="plain-list">
+              <li>Windows 10 or 11</li>
+              <li>Target image files (PNG, JPG, etc.)</li>
+              <li>Source build: Python 3.11+</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Screen Target Clicker · MIT License</p>
+        <div class="footer-links">
+          <a
+            href="https://github.com/natchotacochimichanga-commits/screen-target-clicker"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a href="https://discord.gg/mRfnuHC8f" target="_blank" rel="noreferrer"
+            >Discord</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

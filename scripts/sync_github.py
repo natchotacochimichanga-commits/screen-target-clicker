@@ -8,12 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Paths removed from the public repo (website, old publish helpers, CI for site).
-REMOVE_PATHS = (
-    ROOT / "website",
-    ROOT / ".github",
-    ROOT / "publish-to-github.bat",
-)
+# Paths removed from the public repo when syncing obfuscated app code.
+REMOVE_PATHS = (ROOT / "publish-to-github.bat",)
 
 REMOVE_RUNTIME_AT_ROOT = ROOT / "pyarmor_runtime_000000"
 
