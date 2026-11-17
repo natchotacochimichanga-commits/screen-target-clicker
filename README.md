@@ -18,24 +18,5 @@ package-portable.bat
 release.bat v1.2
 ```
 
-The repo contains **obfuscated** app code. Readable source lives in `src/` on your machine only (gitignored).
 
-## Local development
 
-Edit files in `src/`, then run:
-
-```bat
-run.bat
-```
-
-Before pushing to GitHub:
-
-```bat
-sync-github.bat
-```
-
-That obfuscates `src/` into the repo root and removes non-app clutter.
-
-## License
-
-MIT
